@@ -35,9 +35,9 @@ public class CharacterService {
         return character;
     }
 
-    public List<Character> findCharactersByName(String name) {
+    public List<Character> findCharacterByName(String name) {
         List<Character> characterList = new ArrayList<>();
-        RestResponse apiResponse = restTemplate.getForObject(getCharacterUrl() + "&name=" + name, RestResponse.class);
+        RestResponse apiResponse = restTemplate.getForObject(getCharacterUrl() + "&nameStartsWith=" + name, RestResponse.class);
 
         if (apiResponse != null) {
             characterList = Arrays.asList(apiResponse.getData().getResults());
