@@ -24,6 +24,6 @@ public class CharacterController {
 
     @GetMapping("/character")
     public List<Character> findCharactersByName(@RequestParam String name) {
-        return characterService.findCharactersByName(name);
+        return characterService.findCharacterByName(name);
     }
 }
