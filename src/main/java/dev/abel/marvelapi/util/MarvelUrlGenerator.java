@@ -15,7 +15,7 @@ public class MarvelUrlGenerator {
     @Autowired
     private HashGenerator hashGenerator = new HashGenerator();
 
-    public String generateCharacterUrl(long ts) {
+    public String generateHeroUrl(long ts) {
         return marvelApiUrl + "characters?ts=" + ts + "&apikey=" + publicKey + "&hash=" + hashGenerator.generate(ts);
     }
 }
