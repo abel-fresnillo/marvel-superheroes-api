@@ -1,12 +1,11 @@
 package dev.abel.marvelapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import dev.abel.marvelapi.domain.Hero;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Data {
     private int total;
-    private Hero[] results;
+    private HeroDTO[] results;
 
     public int getTotal() {
         return total;
@@ -16,11 +15,11 @@ public class Data {
         this.total = total;
     }
 
-    public Hero[] getResults() {
+    public HeroDTO[] getResults() {
         return results;
     }
 
-    public void setResults(Hero[] results) {
+    public void setResults(HeroDTO[] results) {
         this.results = results;
     }
 

@@ -1,6 +1,6 @@
 package dev.abel.marvelapi.service;
 
-import dev.abel.marvelapi.domain.Hero;
+import dev.abel.marvelapi.dto.HeroDTO;
 import dev.abel.marvelapi.dto.RestResponse;
 import dev.abel.marvelapi.util.MarvelUrlGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,27 +23,27 @@ public class HeroService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public Hero findHeroById(int id) {
-        Hero hero = new Hero();
+    public HeroDTO findHeroById(int id) {
+        HeroDTO heroDTO = new HeroDTO();
 
         RestResponse apiResponse = restTemplate.getForObject(getHeroUrl() + "&id=" + id, RestResponse.class);
 
         if (apiResponse != null) {
-            hero = apiResponse.getData().getResults()[0];
+            heroDTO = apiResponse.getData().getResults()[0];
         }
 
-        return hero;
+        return heroDTO;
     }
 
-    public List<Hero> findHeroByName(String name) {
-        List<Hero> heroList = new ArrayList<>();
+    public List<HeroDTO> findHeroByName(String name) {
+        List<HeroDTO> heroDTOList = new ArrayList<>();
         RestResponse apiResponse = restTemplate.getForObject(getHeroUrl() + "&nameStartsWith=" + name, RestResponse.class);
 
         if (apiResponse != null) {
-            heroList = Arrays.asList(apiResponse.getData().getResults());
+            heroDTOList = Arrays.asList(apiResponse.getData().getResults());
         }
 
-        return heroList;
+        return heroDTOList;
     }
 
     private String getHeroUrl() {

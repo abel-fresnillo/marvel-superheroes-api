@@ -1,9 +1,9 @@
-package dev.abel.marvelapi.domain;
+package dev.abel.marvelapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Hero {
+public class HeroDTO {
     private String id;
     private String name;
     private String description;
@@ -43,7 +43,7 @@ public class Hero {
 
     @Override
     public String toString() {
-        return "Hero{" +
+        return "HeroDTO{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

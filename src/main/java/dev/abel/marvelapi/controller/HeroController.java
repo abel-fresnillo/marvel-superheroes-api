@@ -1,6 +1,6 @@
 package dev.abel.marvelapi.controller;
 
-import dev.abel.marvelapi.domain.Hero;
+import dev.abel.marvelapi.dto.HeroDTO;
 import dev.abel.marvelapi.service.HeroService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,12 +18,12 @@ public class HeroController {
     }
 
     @GetMapping("/hero/{id}")
-    public Hero findCharactersByName(@PathVariable int id) {
+    public HeroDTO findCharactersByName(@PathVariable int id) {
         return heroService.findHeroById(id);
     }
 
     @GetMapping("/hero")
-    public List<Hero> findCharactersByName(@RequestParam String name) {
+    public List<HeroDTO> findCharactersByName(@RequestParam String name) {
         return heroService.findHeroByName(name);
     }
 }

@@ -1,4 +1,4 @@
-package dev.abel.marvelapi.domain;
+package dev.abel.marvelapi.dto;
 
 public class Thumbnail {
     private String path;
