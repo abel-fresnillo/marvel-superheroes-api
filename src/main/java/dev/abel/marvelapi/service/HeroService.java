@@ -28,7 +28,7 @@ public class HeroService {
 
         RestResponse apiResponse = restTemplate.getForObject(getHeroUrl() + "&id=" + id, RestResponse.class);
 
-        if (apiResponse != null) {
+        if (apiResponse != null && apiResponse.getCode().equals("200")) {
             heroDTO = apiResponse.getData().getResults()[0];
         }
 
@@ -39,7 +39,7 @@ public class HeroService {
         List<HeroDTO> heroDTOList = new ArrayList<>();
         RestResponse apiResponse = restTemplate.getForObject(getHeroUrl() + "&nameStartsWith=" + name, RestResponse.class);
 
-        if (apiResponse != null) {
+        if (apiResponse != null && apiResponse.getCode().equals("200")) {
             heroDTOList = Arrays.asList(apiResponse.getData().getResults());
         }
 
