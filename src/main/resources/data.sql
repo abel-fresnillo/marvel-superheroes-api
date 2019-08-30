@@ -1,1 +1,1 @@
-INSERT INTO hero (id, name, description, image_url) VALUES (0, 'Spring Boot', 'Opinionated Java Framework', '');
+INSERT INTO hero (id, name, description, image) VALUES (0, 'Spring Boot', 'Opinionated Java Framework', '');
