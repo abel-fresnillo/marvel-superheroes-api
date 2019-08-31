@@ -40,6 +40,10 @@ public class HeroDTO {
     public void setThumbnail(Thumbnail thumbnail) {
         this.thumbnail = thumbnail;
     }
+    
+    public String getImageUrl() {
+        return thumbnail.getPath() + "." + thumbnail.getExtension();
+    }
 
     @Override
     public String toString() {
