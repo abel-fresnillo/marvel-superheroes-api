@@ -1,5 +1,7 @@
 package dev.abel.marvelapi.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,13 +11,19 @@ public class Hero {
     @Id
     @GeneratedValue
     private int id;
-
     private String name;
+    @Length(max = 1000)
     private String description;
     private String image;
 
     public Hero() {
 
+    }
+
+    public Hero(String name, String description, String image) {
+        this.name = name;
+        this.description = description;
+        this.image = image;
     }
 
     public int getId() {

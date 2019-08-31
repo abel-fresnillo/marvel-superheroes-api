@@ -1,7 +1,9 @@
 package dev.abel.marvelapi.service;
 
+import dev.abel.marvelapi.domain.Hero;
 import dev.abel.marvelapi.dto.HeroDTO;
 import dev.abel.marvelapi.dto.RestResponse;
+import dev.abel.marvelapi.repository.HeroRepository;
 import dev.abel.marvelapi.util.MarvelUrlGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -15,6 +17,9 @@ import java.util.List;
 @Service
 public class HeroService {
     private final RestTemplate restTemplate;
+
+    @Autowired
+    HeroRepository heroRepository;
 
     @Autowired
     MarvelUrlGenerator marvelUrlGenerator;
@@ -44,6 +49,11 @@ public class HeroService {
         }
 
         return heroDTOList;
+    }
+
+    public void transferHero(int heroId) {
+        HeroDTO marvelHero = findHeroById(heroId);
+        heroRepository.save(new Hero(marvelHero.getName(), marvelHero.getDescription(), marvelHero.getImageUrl()));
     }
 
     private String getHeroUrl() {
