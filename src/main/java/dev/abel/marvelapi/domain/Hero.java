@@ -1,18 +1,13 @@
 package dev.abel.marvelapi.domain;
 
-import org.hibernate.validator.constraints.Length;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
+@Document
 public class Hero {
     @Id
-    @GeneratedValue
-    private int id;
+    private String id;
     private String name;
-    @Length(max = 1000)
     private String description;
     private String image;
 
@@ -26,11 +21,11 @@ public class Hero {
         this.image = image;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
