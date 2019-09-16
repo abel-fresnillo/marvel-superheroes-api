@@ -35,7 +35,7 @@ public class HeroService {
         return heroDTO;
     }
 
-    public List<HeroDTO> findHeroByName(String name) {
+    public List<HeroDTO> findHeroesByName(String name) {
         List<HeroDTO> heroDTOList = new ArrayList<>();
         RestResponse apiResponse = restTemplate.getForObject(getHeroUrl() + "&nameStartsWith=" + name, RestResponse.class);
 

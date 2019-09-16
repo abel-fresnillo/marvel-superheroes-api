@@ -18,12 +18,12 @@ public class HeroController {
     }
 
     @GetMapping("/hero/{id}")
-    public HeroDTO findCharactersByName(@PathVariable int id) {
+    public HeroDTO findHeroById(@PathVariable int id) {
         return heroService.findHeroById(id);
     }
 
     @GetMapping("/hero")
-    public List<HeroDTO> findCharactersByName(@RequestParam String name) {
-        return heroService.findHeroByName(name);
+    public List<HeroDTO> findHeroesByName(@RequestParam String name) {
+        return heroService.findHeroesByName(name);
     }
 }
