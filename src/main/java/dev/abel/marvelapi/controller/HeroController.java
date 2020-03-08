@@ -26,4 +26,9 @@ public class HeroController {
     public List<HeroDTO> findHeroesByName(@RequestParam String name) {
         return heroService.findHeroesByName(name);
     }
+
+    @GetMapping("/hero/transfer")
+    public void transferHero(@RequestParam int id) {
+        heroService.transferHero(id);
+    }
 }
